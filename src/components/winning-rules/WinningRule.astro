@@ -1,0 +1,17 @@
+---
+import WinningRuleLeft from "./WinningRuleLeft.astro";
+import WinningRuleRight from "./WinningRuleRight.astro";
+import {RuleData} from "./ruleData";
+
+const {data} = Astro.props as { data: RuleData }
+---
+<div class="py-8 p-3 mt-16 flex flex-wrap rounded-3xl bg-gradient-to-r from-pink-50 to-violet-50">
+    <!-- 左侧列 -->
+    <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex justify-center">
+        <WinningRuleLeft title={data.title} leftDataList={data.leftDataList}/>
+    </div>
+    <!-- 右侧列 -->
+    <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex justify-center">
+        <WinningRuleRight rightDataList={data.rightDataList}/>
+    </div>
+</div>

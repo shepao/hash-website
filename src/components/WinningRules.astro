@@ -1,0 +1,15 @@
+---
+import {dataList} from "./winning-rules/ruleData";
+import Container from "./Container.astro";
+import WinningRule from "./winning-rules/WinningRule.astro";
+---
+
+<div id="winningRules">
+    <Container>
+        {
+            dataList.map(value => (
+                    <WinningRule data={value}/>
+            ))
+        }
+    </Container>
+</div>

@@ -1,0 +1,12 @@
+---
+import FragmentRight from "./FragmentRight.astro";
+import {rightData} from "./ruleData";
+const {rightDataList} = Astro.props as { rightDataList: rightData[] }
+---
+<div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between items-center gap-5">
+    {
+        rightDataList.map(value => (
+                <FragmentRight data={value}/>
+        ))
+    }
+</div>

@@ -1,0 +1,27 @@
+---
+//关键字变色
+const {text} = Astro.props
+
+type x = {
+    text: string
+    color: string
+}
+function getMap(text) {
+    const arr = text.split("&");
+    const result: x[] = []
+    arr.forEach((element, index) => {
+        result.push({
+            text: element,
+            color: index % 2 === 0 ? "black" : "text-pink-500"
+        });
+    })
+    return result
+}
+const result = getMap(text)
+---
+
+{
+    result.map((mText) => (
+    <span class={mText.color}>{mText.text}</span>
+        ))
+    }

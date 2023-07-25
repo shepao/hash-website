@@ -1,0 +1,18 @@
+---
+import {rightData} from "./ruleData";
+import ColorSpan from "./ColorSpan.astro";
+const {data} = Astro.props as { data: rightData }
+---
+<div class="text-left text-white p-4 rounded-3xl bg-gradient-to-r from-pink-300 to-violet-300">
+    <h6 class="text-1xl font-bold mb-4">
+        <ColorSpan text={data.title}/>
+    </h6>
+    <!--<h2>Boost your conversion rate</h2>-->
+    {
+        data.lis.map(value => (
+                <p class="line-clamp-3 antialiased">
+                    <ColorSpan text={value}/>
+                </p>
+        ))
+    }
+</div>

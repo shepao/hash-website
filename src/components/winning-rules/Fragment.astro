@@ -1,0 +1,20 @@
+---
+//片段,带标题的说明
+
+import {leftData} from "./ruleData";
+import ColorSpan from "./ColorSpan.astro";
+const {data} = Astro.props as { data: leftData }
+---
+
+<div class="text-left">
+    <h6 class="text-1xl font-bold mb-4">{data.title}</h6>
+    <ul class="list-disc pl-6">
+        {
+            data.lis.map((value) => (
+                    <li class="antialiased">
+                        <ColorSpan text={value}/>
+                    </li>
+            ))
+        }
+    </ul>
+</div>
