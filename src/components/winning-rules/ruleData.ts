@@ -8,6 +8,7 @@ export type rightData = {
 }
 
 export type RuleData = {
+    tag:string
     title: string
     leftDataList: leftData[]
     rightDataList: rightData[]
@@ -15,6 +16,7 @@ export type RuleData = {
 
 export const dataList: RuleData[] = [
     {
+        tag:"dsRule",
         title: "单双玩法",
         leftDataList: [
             {
@@ -52,6 +54,7 @@ export const dataList: RuleData[] = [
             }
         ]
     }, {
+        tag:"nnRule",
         title: "牛牛玩法",
         leftDataList: [{
             title: "金额限制",
@@ -96,6 +99,7 @@ export const dataList: RuleData[] = [
             }
         ]
     }, {
+        tag:"pkRule",
         title: "PK10玩法",
         leftDataList: [{
             title: "金额限制",
@@ -132,6 +136,7 @@ export const dataList: RuleData[] = [
             }
         ]
     }, {
+        tag:"swRule",
         title: "双尾玩法",
         leftDataList: [{
             title: "金额限制",
