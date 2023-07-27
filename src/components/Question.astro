@@ -1,0 +1,20 @@
+---
+import Container from "./Container.astro";
+import Collapse from "./faqs/Collapse.astro";
+import {dataAll} from "./faqs/data";
+---
+
+<div id="FAQS">
+    <Container>
+        <div class="text-left flex flex-col pt-4 lg:w-2/3 mx-auto gap-3">
+            <h2 class="text-center text-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text">
+                常见问题
+            </h2>
+            {
+                dataAll.contents.map((value, index) => (
+                        <Collapse index={index} title={value.title} content={value.content}/>
+                ))
+            }
+        </div>
+    </Container>
+</div>

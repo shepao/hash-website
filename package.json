@@ -9,9 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.9.2"
+    "@astrojs/vue": "^2.2.1",
+    "astro": "^2.9.3",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^1.0.0"
+    "@astrojs/tailwind": "^4.0.0"
   }
 }

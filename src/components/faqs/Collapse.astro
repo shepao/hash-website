@@ -1,0 +1,60 @@
+---
+//折叠面板
+const {index, title, content} = Astro.props
+const idCheckbox = "mCheckbox" + index
+const idContent = "mContent" + index
+const idSvg = "mSvg" + index
+---
+<script>
+    let checked = false
+    const mCheckbox = document.querySelector("#" + idCheckbox);
+    const mSvg = document.querySelector("#" + idSvg);
+    const mContent = document.querySelector("#" + idContent);
+
+    updateChecked()
+
+    function updateChecked() {
+        if (checked) {
+            mSvg.classList.remove("-rotate-180")
+            mContent.classList.add("max-h-[300px]")
+            mContent.classList.remove("max-h-0")
+        } else {
+            mSvg.classList.add("-rotate-180")
+            mContent.classList.remove("max-h-[300px]")
+            mContent.classList.add("max-h-0")
+        }
+    }
+
+    mCheckbox.addEventListener("click", () => {
+        checked = !checked
+        updateChecked()
+    });
+
+</script>
+<div>
+    <label class="px-4 py-2 border border-gray-300
+    bg-gradient-to-r from-pink-300 to-violet-300
+    hover:bg-gray-100 flex justify-between
+    items-center cursor-pointer transition-all
+    rounded-t-xl
+    "
+    >
+        <input id={idCheckbox} type="checkbox" class="sr-only"/>
+        <div class:list={['transition-all', 'text-white']}>
+            {title}
+        </div>
+        <div class="w-9 h-7 text-white hover:bg-gray-200 rounded-full flex justify-center items-center transition-all">
+            <svg id={idSvg} xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                 class="h-6 w-6 transition-all">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </div>
+    </label>
+    <div id={idContent} class="rounded-b-xl border border-t-0 border-gray-300 overflow-hidden transition-all">
+        <div class="p-4 text-gray-600 antialiased">
+            {content}
+        </div>
+    </div>
+</div>
+
