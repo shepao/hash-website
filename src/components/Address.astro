@@ -1,19 +1,65 @@
 ---
 const {addr, name} = Astro.props
 ---
-<div class="flex flex-col gap-3 p-4 rounded-3xl bg-gradient-to-r from-pink-50 to-violet-50 ">
-    <div class="flex justify-between items-center">
-        <span>{name}</span>
-        <button class="py-1 bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-normal px-4 rounded-3xl text-sm">
-            复制{name}地址
-        </button>
-    </div>
-    <div>
+<script>
+    function copyToClipboard(text) {
+        // 创建一个隐藏的文本输入框
+        const input = document.createElement('input');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        input.value = text;
+        document.body.appendChild(input);
+
+        // 选中文本输入框中的内容
+        input.select();
+
+        // 复制内容到剪贴板
+        document.execCommand('copy');
+
+        // 移除文本输入框
+        document.body.removeChild(input);
+    }
+    // 为我们的新 HTML 自定义元素定义行为。
+    class AstroHeart extends HTMLElement {
+        constructor() {
+            super();
+            let count = 0;
+
+            const btn = this.querySelector('button.copy');
+            const addressSpan = this.querySelector('.address');
+            const copyHint = this.querySelector('.copy-hint');
+
+            // 每次单击按钮时，更新计数。
+            btn.addEventListener('click', () => {
+                copyToClipboard(addressSpan.textContent)
+                console.log('复制成功'+addressSpan.textContent)
+                copyHint.style.display='block'
+                setTimeout(function() {
+                    copyHint.style.display = 'none';
+                }, 1000);
+            });
+        }
+    }
+
+    // 告诉浏览器将我们的 AstroHeart 类用于 <astro-heart> 元素。
+    customElements.define('astro-heart', AstroHeart);
+</script>
+<astro-heart>
+    <div class="flex flex-col gap-3 p-4 rounded-3xl bg-gradient-to-r from-pink-50 to-violet-50 ">
+        <div class="flex justify-between items-center">
+            <span>{name}</span>
+            <span class="copy-hint text-gray-900 antialiased font-thin hidden">复制成功</span>
+            <button class="copy py-1 bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-normal px-4 rounded-3xl text-sm">
+                复制{name}地址
+            </button>
+        </div>
+        <div>
         <span class="address bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
         {addr}
         </span>
+        </div>
     </div>
-</div>
+</astro-heart>
 <style>
     /* 注册你的自定义字体并告诉浏览器它在哪里 */
     @font-face {
