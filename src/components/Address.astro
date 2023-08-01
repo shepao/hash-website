@@ -9,11 +9,22 @@ const {addr, name} = Astro.props
         </button>
     </div>
     <div>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        <span class="address bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
         {addr}
         </span>
     </div>
 </div>
 <style>
+    /* 注册你的自定义字体并告诉浏览器它在哪里 */
+    @font-face {
+        font-family: 'golos';
+        src: url('/fonts/golos-ui_regular.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
+    .address {
+        font-family: 'golos', sans-serif;
+    }
 </style>
