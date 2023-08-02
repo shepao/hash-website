@@ -1,36 +1,41 @@
 ---
 //折叠面板
 const {index, title, content} = Astro.props
-const idCheckbox = "mCheckbox" + index
-const idContent = "mContent" + index
-const idSvg = "mSvg" + index
+
 ---
 <script>
-    let checked = false
-    const mCheckbox = document.querySelector("#" + idCheckbox);
-    const mSvg = document.querySelector("#" + idSvg);
-    const mContent = document.querySelector("#" + idContent);
+    class AstroHeart extends HTMLElement {
+        constructor() {
+            super();
+            let checked = false
+            const mCheckbox = this.querySelector('.idCheckbox')
+            const mSvg = this.querySelector(".idSvg" );
+            const mContent = this.querySelector('.idContent');
 
-    updateChecked()
-
-    function updateChecked() {
-        if (checked) {
-            mSvg.classList.remove("-rotate-180")
-            mContent.classList.add("max-h-[300px]")
-            mContent.classList.remove("max-h-0")
-        } else {
-            mSvg.classList.add("-rotate-180")
-            mContent.classList.remove("max-h-[300px]")
-            mContent.classList.add("max-h-0")
+            function updateChecked() {
+                if (checked) {
+                    mSvg.classList.remove("-rotate-180")
+                    mContent.classList.add("max-h-[300px]")
+                    mContent.classList.remove("max-h-0")
+                } else {
+                    mSvg.classList.add("-rotate-180")
+                    mContent.classList.remove("max-h-[300px]")
+                    mContent.classList.add("max-h-0")
+                }
+            }
+            updateChecked()
+            mCheckbox.addEventListener("click", () => {
+                checked = !checked
+                updateChecked()
+            });
         }
     }
 
-    mCheckbox.addEventListener("click", () => {
-        checked = !checked
-        updateChecked()
-    });
+    // 告诉浏览器将我们的 AstroHeart 类用于 <astro-heart> 元素。
+    customElements.define('m-astro-heart', AstroHeart);
 
 </script>
+<m-astro-heart>
 <div>
     <label class="px-4 py-2 border border-gray-300
     bg-gradient-to-r from-pink-300 to-violet-300
@@ -39,22 +44,22 @@ const idSvg = "mSvg" + index
     rounded-t-xl
     "
     >
-        <input id={idCheckbox} type="checkbox" class="sr-only"/>
+        <input type="checkbox" class="idCheckbox sr-only"/>
         <div class:list={['transition-all', 'text-white']}>
             {title}
         </div>
         <div class="w-9 h-7 text-white hover:bg-gray-200 rounded-full flex justify-center items-center transition-all">
-            <svg id={idSvg} xmlns="http://www.w3.org/2000/svg"
+            <svg xmlns="http://www.w3.org/2000/svg"
                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                 class="h-6 w-6 transition-all">
+                 class="idSvg h-6 w-6 transition-all">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
         </div>
     </label>
-    <div id={idContent} class="rounded-b-xl border border-t-0 border-gray-300 overflow-hidden transition-all">
+    <div class="idContent rounded-b-xl border border-t-0 border-gray-300 overflow-hidden transition-all">
         <div class="p-4 text-gray-600 antialiased">
             {content}
         </div>
     </div>
 </div>
-
+</m-astro-heart>
