@@ -12,9 +12,16 @@ import AppHeader from "../components/AppHeader.astro";
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content="Template built with tailwindcss using Tailus blocks v2" />
         <title>Tailus astro theme</title>
-
         <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />
     </head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-21KM98Q961"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-21KM98Q961');
+    </script>
     <body class="bg-white dark:bg-gray-900">
         <AppHeader />
         <slot />
