@@ -1,8 +1,21 @@
 ---
 import Container from "./Container.astro"
 import Address from "./Address.astro";
-
 ---
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-21KM98Q961"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-21KM98Q961');
+</script>
 
 <div class="relative" id="home">
     <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -12,11 +25,16 @@ import Address from "./Address.astro";
     <Container>
         <div class="relative pt-36 ml-auto">
             <div class="lg:w-2/3 text-center mx-auto">
-                <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">Hash竞猜平台 <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text">Tron58.com</span></h1>
-                <p class="mt-8 text-gray-700 dark:text-gray-300 font-nomal"> 公平,安全,公开,信誉靠谱的Hash竞猜平台,<a class="italic font-bold underline text-pink-500 decoration-violet-500" target="_blank" href="https://m.mytokencap.com/news/117045">结果不可篡改,无法操控</a>。结算快,资金池保障,值得信赖!</p>
+                <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">Hash竞猜平台 <span
+                        class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text">Tron58.com</span>
+                </h1>
+                <p class="mt-8 text-gray-700 dark:text-gray-300 font-nomal"> 公平,安全,公开,信誉靠谱的Hash竞猜平台,<a
+                        class="italic font-bold underline text-pink-500 decoration-violet-500" target="_blank"
+                        href="https://m.mytokencap.com/news/117045">结果不可篡改,无法操控</a>。结算快,资金池保障,值得信赖!
+                </p>
                 <div class="mt-16 flex flex-wrap justify-left gap-y-4 gap-x-6">
-                    <Address name="单双" addr="TFC4BQAoUQpmrhvfbU2mAKQKjhE8dSssss" />
-                    <Address name="大小" addr="TYtCeyavyAUxza4BYJAz2WJ9sdqBDXxxxx" />
+                    <Address name="单双" addr="TFC4BQAoUQpmrhvfbU2mAKQKjhE8dSssss"/>
+                    <Address name="大小" addr="TYtCeyavyAUxza4BYJAz2WJ9sdqBDXxxxx"/>
                     <Address name="牛牛" addr="TVkA1EoXjrGnVaALdkgYDiABCBfUNnnnnn"/>
                     <Address name="PK10赛车" addr="TDyvuWL3J34N36JqVRmqb38VktpACCCCCC"/>
                     <Address name="双尾" addr="TQc6ByT15UtsZNx6CERwELvmYBuhWwwwww"/>
@@ -39,24 +57,30 @@ import Address from "./Address.astro";
             </div>
             <div class="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/microsoft.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
+                    <img src="./images/clients/microsoft.svg" class="h-12 w-auto mx-auto" loading="lazy"
+                         alt="client logo" width="" height=""/>
+                </div>
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/clients/airbnb.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/clients/airbnb.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo"
+                         width="" height=""/>
                 </div>
                 <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/clients/google.svg" class="h-9 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/clients/google.svg" class="h-9 w-auto m-auto" loading="lazy" alt="client logo"
+                         width="" height=""/>
                 </div>
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/ge.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
-                  <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/netflix.svg" class="h-8 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
-                  </div>
-                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/clients/google-cloud.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/clients/ge.svg" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo"
+                         width="" height=""/>
                 </div>
-              </div>
+                <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/netflix.svg" class="h-8 w-auto m-auto" loading="lazy" alt="client logo"
+                         width="" height=""/>
+                </div>
+                <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+                    <img src="./images/clients/google-cloud.svg" class="h-12 w-auto mx-auto" loading="lazy"
+                         alt="client logo" width="" height=""/>
+                </div>
+            </div>
         </div>
     </Container>
 </div>
